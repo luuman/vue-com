@@ -1,4 +1,6 @@
 import axios from 'axios'
+import {baseUrl} from './env.js'
+import Loading from 'COMPONENT/vue-loading'
 
 // const TOKEN = '93a89eb491ce25f7cd243bd51fd8c68b38ae77cd'
 // const option = {
@@ -9,10 +11,10 @@ import axios from 'axios'
 // console.log('option' + option)
 
 import qs from 'qs'
-import * as Tool from 'UTIL/tool'
+import * as Tool from 'UTIL/vuex'
 // axios 配置
 axios.defaults.timeout = 5000
-axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5934cc0091470c0ac100f57e/api'
+axios.defaults.baseURL = baseUrl
 // axios.defaults.headers.common['Authorization'] = `token ${TOKEN}`
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
@@ -23,9 +25,14 @@ axios.interceptors.request.use((config) => {
   }
   let URL = config.url.split(config.baseURL)
   Tool.open(URL[1])
+  console.log(config)
+  if (config.showLoading) {
+    Loading.open()
+  }
   return config
 }, (error) => {
   Tool.toast('错误的传参', 'fail')
+  Loading.close()
   return Promise.reject(error)
 })
 
@@ -39,16 +46,18 @@ axios.interceptors.response.use((res) => {
   //   return Promise.reject(res)
   // }
   Tool.close()
+  Loading.close()
   return res
 }, (error) => {
   Tool.toast('网络异常', 'fail')
   Tool.close()
+  Loading.close()
   return Promise.reject(error)
 })
 
-export const oGet = (url, params) => {
+export const oGet = (url, params, showLoading) => {
   return new Promise((resolve, reject) => {
-    axios.get(url, params)
+    axios.get(url, params, {showLoading: showLoading})
       .then(res => {
         resolve(res.data)
       }, err => {
@@ -60,9 +69,9 @@ export const oGet = (url, params) => {
   })
 }
 
-export const oPost = (url, params) => {
+export const oPost = (url, params, showLoading) => {
   return new Promise((resolve, reject) => {
-    axios.post(url, params)
+    axios.post(url, params, {showLoading: showLoading})
       .then(res => {
         resolve(res.data)
       }, err => {

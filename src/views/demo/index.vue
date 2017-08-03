@@ -14,6 +14,7 @@
 <script>
   import Route from 'ROUTE'
   import Buttons from 'COMPONENT/button'
+  import API from 'API'
   export default {
     components: {Buttons},
     data () {
@@ -33,6 +34,11 @@
       }
     },
     mounted () {
+      API.CoreInfo().then((res) => {
+        console.log(res)
+      }, (res) => {
+        console.log('BUG Weixin JSSDK')
+      })
     }
   }
 </script>

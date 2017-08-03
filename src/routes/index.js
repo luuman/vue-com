@@ -14,6 +14,9 @@ const Button = r => require.ensure([], () => r(require('VIEW/button')), 'button'
 const Login = r => require.ensure([], () => r(require('VIEW/login')), 'login')
 const Head = r => require.ensure([], () => r(require('VIEW/head')), 'head')
 const Swiper = r => require.ensure([], () => r(require('VIEW/swiper')), 'swiper')
+const VueAlert = r => require.ensure([], () => r(require('VIEW/vue-alert')), 'alert')
+const Loading = r => require.ensure([], () => r(require('VIEW/loading')), 'loading')
+const Previewer = r => require.ensure([], () => r(require('VIEW/previewer')), 'loading')
 
 Vue.use(Router)
 
@@ -33,6 +36,21 @@ export default new Router({
       path: '/Alert',
       name: 'Alert',
       component: Alert
+    },
+    {
+      path: '/VueAlert',
+      name: 'VueAlert',
+      component: VueAlert
+    },
+    {
+      path: '/Loading',
+      name: 'Loading',
+      component: Loading
+    },
+    {
+      path: '/Previewer',
+      name: 'Previewer',
+      component: Previewer
     },
     {
       path: '/Button',

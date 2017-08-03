@@ -1,4 +1,5 @@
 import store from 'VUEX/store'
+// import Loading from 'COMPONENT/vue-loading'
 
 export const toast = (str, icon) => {
   console.group('showToast')
@@ -29,8 +30,11 @@ export const alert = (str) => {
 
 export const open = (text) => {
   console.group('AXIOS ' + text)
+  // window.Loading.show()
+  // Loading.plugin.Loading.show()vue
 }
 
 export const close = () => {
   console.groupEnd()
+  // window.Loading.hide()
 }

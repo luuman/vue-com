@@ -5,6 +5,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+var ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -31,6 +32,7 @@ module.exports = merge(baseWebpackConfig, {
       // favicon: 'favicon.ico',
       inject: true
     }),
+    new ProgressBarPlugin(),
     new FriendlyErrorsPlugin()
   ]
 })

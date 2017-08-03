@@ -85,7 +85,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  @import '../../src/assets/scss/mixin.scss';
+  @import '../../assets/scss/mixin.scss';
   .vue-alert{
     .vue-mask{
       position: fixed;

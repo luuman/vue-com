@@ -13,6 +13,13 @@ import 'UTIL/flexible'
 import SVG from 'COMPONENT/svg'
 Vue.component('v-svg', SVG)
 
+// import FastClick from 'fastclick'
+// if ('addEventListener' in document) {
+//   document.addEventListener('DOMContentLoaded', function () {
+//     FastClick.attach(document.body)
+//   }, false)
+// }
+
 // console.time('执行时间')
 // console.timeEnd('执行时间')
 
@@ -26,6 +33,13 @@ Vue.use(VueLazyload, {
   // listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend'],
   attempt: 1
 })
+
+import Alert from 'COMPONENT/vue-alerts'
+Vue.use(Alert)
+
+import Loading from 'COMPONENT/vue-loading'
+Vue.prototype.$Loading = Loading
+Vue.use(Loading)
 
 // import VueScroller from 'vue-scroller'
 // Vue.use(VueScroller)
@@ -44,16 +58,17 @@ Vue.use(VueLazyload, {
 
 // import store from 'VUEX/store'
 
+console.log('[process.env.NODE_ENV]' + process.env.NODE_ENV)
+
 router.beforeEach((to, from, next) => {
   console.log('global beforeEach')
   next()
 })
-
-router.beforeResolve((to, from, next) => {
-  console.log('global beforeResolve')
-  next()
-})
-
+// bug
+// router.beforeResolve((to, from, next) => {
+//   console.log('global beforeResolve')
+//   next()
+// })
 router.afterEach((to, from, next) => {
   console.log('global afterEach')
 })

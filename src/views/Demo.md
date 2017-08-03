@@ -1,12 +1,12 @@
 
 | 组件 | 名称 | 依赖 |
 | -----|-----|-----|
-| alert | doc | doc |
-| v_dialog | head | hd |
-| 主体 | body | bd |
-| 尾部 | foot | ft |
-| 主栏 | main | mn |
-| 主栏子容器 | mainc | mnc |
-| 侧栏 | side | sd |
-| 侧栏子容器 | sidec | sdc |
-| 盒容器 | wrap/box | 	wrap/box |
+| alert | 警报 | none |
+| v-dialog | 提示 | none |
+| timecode | 发送验证码 | bd |
+| jssdk | foot | weixin-js-sdk |
+| qrcode | main | mn |
+| previewer | 图片查看器 | photoswipe/object-assign |
+| swpier | 轮播图 | sd |
+| vue-alert | 警报 | [vue-ios-alertview](http://isay.me/vue-ios-alertview/example/) |
+| 盒容器 | wrap/box | 	[vue-ios-alertview]() |
