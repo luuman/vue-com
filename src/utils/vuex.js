@@ -30,11 +30,13 @@ export const alert = (str) => {
 
 export const open = (text) => {
   console.group('AXIOS ' + text)
+  store.dispatch('openLoading', text)
   // window.Loading.show()
   // Loading.plugin.Loading.show()vue
 }
 
 export const close = () => {
   console.groupEnd()
+  store.dispatch('closeLoading')
   // window.Loading.hide()
 }

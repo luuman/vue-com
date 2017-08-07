@@ -1,7 +1,11 @@
 import * as types from 'VUEX/mutation-types'
+import Loading from 'COMPONENT/vue-loading'
 
 const state = {
   loading: false,
+  loadingList: [],
+  loadingCounet: 0,
+  loadingcountUp: null,
   showToast: false,
   leftNavStatus: false,
   showSuccess: true,
@@ -13,6 +17,12 @@ const state = {
 }
 
 const actions = {
+  openLoading ({ commit }, playload) {
+    commit(types.COM_PUSH_LOADING, playload)
+  },
+  closeLoading ({ commit }) {
+    commit(types.COM_SHIFT_LOADING)
+  },
   setLoadingState ({ commit }, status) {
     commit(types.COM_LOADING_STATUS, status)
   },
@@ -44,6 +54,7 @@ const actions = {
 
 const getters = {
   loading: state => state.loading,
+  isLoading: state => state.loadingList.length > 0,
   showToast: state => state.showToast,
   showAlert: state => state.showAlert
 }
@@ -51,6 +62,19 @@ const getters = {
 const mutations = {
   [types.COM_LOADING_STATUS] (state, status) {
     state.loading = status
+  },
+  [types.COM_PUSH_LOADING] (state, playload) {
+    state.loadingList.push({text: playload || '玩命加载中...'})
+    Loading.open('加载中……')
+    state.count = 1
+    state.countUp = setInterval(() => {
+      state.count += 1
+    }, 1000)
+  },
+  [types.COM_SHIFT_LOADING] (state) {
+    state.loadingList.shift()
+    Loading.close()
+    clearInterval(state.countUp)
   },
 
   [types.COM_SHOW_TOAST] (state, status) {

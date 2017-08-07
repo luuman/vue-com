@@ -41,6 +41,9 @@ import Loading from 'COMPONENT/vue-loading'
 Vue.prototype.$Loading = Loading
 Vue.use(Loading)
 
+import VueScroller from 'vue-scroller'
+Vue.use(VueScroller)
+
 // import VueScroller from 'vue-scroller'
 // Vue.use(VueScroller)
 
@@ -61,7 +64,7 @@ Vue.use(Loading)
 console.log('[process.env.NODE_ENV]' + process.env.NODE_ENV)
 
 router.beforeEach((to, from, next) => {
-  console.log('global beforeEach')
+  // console.log('global beforeEach')
   next()
 })
 // bug
@@ -69,8 +72,12 @@ router.beforeEach((to, from, next) => {
 //   console.log('global beforeResolve')
 //   next()
 // })
+
+import {setDocumentTitle} from 'UTIL/html-title'
 router.afterEach((to, from, next) => {
-  console.log('global afterEach')
+  console.log(to)
+  let title = to.meta.title
+  setDocumentTitle(title)
 })
 
 /* eslint-disable no-new */

@@ -17,6 +17,10 @@ const Swiper = r => require.ensure([], () => r(require('VIEW/swiper')), 'swiper'
 const VueAlert = r => require.ensure([], () => r(require('VIEW/vue-alert')), 'alert')
 const Loading = r => require.ensure([], () => r(require('VIEW/loading')), 'loading')
 const Previewer = r => require.ensure([], () => r(require('VIEW/previewer')), 'loading')
+const Scroller = r => require.ensure([], () => r(require('VIEW/scroller')), 'Scroller')
+const ScrollerInfo = r => require.ensure([], () => r(require('VIEW/scroller/info')), 'Scroller')
+const KeepAlive = r => require.ensure([], () => r(require('VIEW/keep-alive')), 'Scroller')
+const Util = r => require.ensure([], () => r(require('VIEW/utils')), 'Util')
 
 Vue.use(Router)
 
@@ -26,51 +30,110 @@ export default new Router({
       path: '/',
       name: 'Demo',
       // keepAlive: true,
-      beforeEnter (to, from, next) {
-        console.log('router beforeEnter')
-        next()
+      // beforeEnter (to, from, next) {
+      //   console.log('router beforeEnter')
+      //   next()
+      // },
+      meta: {
+        title: '首页'
       },
       component: Demo
     },
     {
       path: '/Alert',
       name: 'Alert',
+      meta: {
+        title: '弹窗'
+      },
       component: Alert
     },
     {
       path: '/VueAlert',
       name: 'VueAlert',
+      meta: {
+        title: '弹窗'
+      },
       component: VueAlert
     },
     {
       path: '/Loading',
       name: 'Loading',
+      meta: {
+        title: 'Loading'
+      },
       component: Loading
     },
     {
       path: '/Previewer',
       name: 'Previewer',
+      meta: {
+        title: '图片查看'
+      },
       component: Previewer
     },
     {
       path: '/Button',
       name: 'Button',
+      meta: {
+        title: ''
+      },
       component: Button
     },
     {
       path: '/Login',
       name: 'Login',
+      meta: {
+        title: ''
+      },
       component: Login
     },
     {
       path: '/Head',
       name: 'Head',
+      meta: {
+        title: ''
+      },
       component: Head
     },
     {
       path: '/Swiper',
       name: 'Swiper',
+      meta: {
+        title: '轮播图'
+      },
       component: Swiper
+    },
+    {
+      path: '/KeepAlive',
+      name: 'KeepAlive',
+      meta: {
+        title: '缓存'
+      },
+      component: KeepAlive
+    },
+    {
+      path: '/Util',
+      name: 'Util',
+      meta: {
+        title: '工具'
+      },
+      component: Util
+    },
+    {
+      path: '/Scroller/:username',
+      name: 'Scroller',
+      meta: {
+        title: '数据加载'
+      },
+      component: ScrollerInfo
+    },
+    {
+      path: '/Scroller',
+      name: 'Scroller',
+      meta: {
+        title: ''
+      },
+      component: Scroller
     }
   ]
 })

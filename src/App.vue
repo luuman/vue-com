@@ -1,7 +1,14 @@
 <template>
   <div class="container">
     <transition name="router-slid" mode="out-in">
-      <router-view class="view"></router-view>
+      <!-- <keep-alive exclude="scroller">
+        <router-view></router-view>
+      </keep-alive> -->
+      <!-- <keep-alive v-if="$route.meta.keepAlive">
+        <router-view></router-view>
+      </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"></router-view> -->
+      <router-view></router-view>
     </transition>
   </div>
 </template>
@@ -9,6 +16,12 @@
   import 'ASSET/scss/mreset.scss'
   import '../node_modules/progressive-image/dist/index.css'
   export default {
+    data: () => ({
+      includedComponents: ''
+    }),
+    mounted () {
+      console.log(this.$route.meta)
+    }
   }
 </script>
 

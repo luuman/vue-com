@@ -1,7 +1,7 @@
 <template>
   <transition name="vue-loading">
     <div class="loading_toast" v-show="show">
-      <!-- <div class="mask"></div> -->
+      <div class="mask"></div>
       <div class="toast" :style="{ position: position }">
         <i class="loading icon_toast"></i>
         <p class="content">{{text || 'loading'}}<slot></slot></p>

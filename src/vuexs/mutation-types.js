@@ -2,6 +2,9 @@
 export const COM_NAV_STATUS = 'COM_NAV_STATUS'
 export const COM_HEADER_STATUS = 'COM_HEADER_STATUS'
 export const COM_LOADING_STATUS = 'COM_LOADING_STATUS'
+// Loading
+export const COM_PUSH_LOADING = 'COM_PUSH_LOADING'
+export const COM_SHIFT_LOADING = 'COM_SHIFT_LOADING'
 // 显示toast
 export const COM_SHOW_TOAST = 'COM_SHOW_TOAST'
 // 显示成功toast

@@ -29,16 +29,30 @@
           let j = i - 1
           Demo[j] = array[i].name
         }
-        console.log(Demo)
+        // console.log(Demo)
         return Demo
       }
     },
     mounted () {
-      API.CoreInfo().then((res) => {
-        console.log(res)
+      console.log(this.$el.style)
+      API.Notifs('11').then((res) => {
       }, (res) => {
         console.log('BUG Weixin JSSDK')
       })
+      API.Notifications('11').then((res) => {
+      }, (res) => {
+        console.log('BUG Weixin JSSDK')
+      })
+      API.Notifications('2').then((res) => {
+      }, (res) => {
+        console.log('BUG Weixin JSSDK')
+      })
+    },
+    activated () {
+      console.log('Keep-alive activated')
+    },
+    deactivated () {
+      console.log('Keep-alive deactivated')
     }
   }
 </script>
