@@ -18,9 +18,14 @@ const VueAlert = r => require.ensure([], () => r(require('VIEW/vue-alert')), 'al
 const Loading = r => require.ensure([], () => r(require('VIEW/loading')), 'loading')
 const Previewer = r => require.ensure([], () => r(require('VIEW/previewer')), 'loading')
 const Scroller = r => require.ensure([], () => r(require('VIEW/scroller')), 'Scroller')
+const Scroll = r => require.ensure([], () => r(require('VIEW/scroll')), 'Scroll')
 const ScrollerInfo = r => require.ensure([], () => r(require('VIEW/scroller/info')), 'Scroller')
 const KeepAlive = r => require.ensure([], () => r(require('VIEW/keep-alive')), 'Scroller')
 const Util = r => require.ensure([], () => r(require('VIEW/utils')), 'Util')
+const HtmlCanvas = r => require.ensure([], () => r(require('VIEW/html-canvas')), 'HtmlCanvas')
+const Clipboard = r => require.ensure([], () => r(require('VIEW/clipboard')), 'Clipboard')
+
+const VueCrop = r => require.ensure([], () => r(require('VIEW/vue-crop')), 'VueCrop')
 
 Vue.use(Router)
 
@@ -64,6 +69,22 @@ export default new Router({
       component: Loading
     },
     {
+      path: '/Clipboard',
+      name: 'Clipboard',
+      meta: {
+        title: '复制'
+      },
+      component: Clipboard
+    },
+    {
+      path: '/HtmlCanvas',
+      name: 'HtmlCanvas',
+      meta: {
+        title: '图片生成器'
+      },
+      component: HtmlCanvas
+    },
+    {
       path: '/Previewer',
       name: 'Previewer',
       meta: {
@@ -86,6 +107,14 @@ export default new Router({
         title: ''
       },
       component: Login
+    },
+    {
+      path: '/VueCrop',
+      name: 'VueCrop',
+      meta: {
+        title: '头像上传'
+      },
+      component: VueCrop
     },
     {
       path: '/Head',
@@ -118,6 +147,14 @@ export default new Router({
         title: '工具'
       },
       component: Util
+    },
+    {
+      path: '/Scroll',
+      name: 'Scroll',
+      meta: {
+        title: 'TOP'
+      },
+      component: Scroll
     },
     {
       path: '/Scroller/:username',

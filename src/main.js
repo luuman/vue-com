@@ -73,11 +73,9 @@ router.beforeEach((to, from, next) => {
 //   next()
 // })
 
-import {setDocumentTitle} from 'UTIL/html-title'
+import {setDocumentTitle} from 'UTIL/common'
 router.afterEach((to, from, next) => {
-  console.log(to)
-  let title = to.meta.title
-  setDocumentTitle(title)
+  setDocumentTitle(to.meta.title)
 })
 
 /* eslint-disable no-new */

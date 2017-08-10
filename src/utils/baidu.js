@@ -1,5 +1,5 @@
 // 还需再次测试
-export const HmInstall = () => {
+export const hmInstall = () => {
   var _hmt = _hmt || [];
   (function () {
     var hm = document.createElement('script')

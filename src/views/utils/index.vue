@@ -2,25 +2,37 @@
   <div>
     <input v-model="title" type="text" name="">
     <div @click="setTitle">Title</div>
+    <div>{{getCityList}}</div>
   </div>
 </template>
 <script>
   import {setDocumentTitle} from 'UTIL/html-title'
+  import {formatAlphabeticalOrder} from 'UTIL/tool'
+  import API from 'API'
   export default {
     components: {
     },
     data () {
       return {
-        title: ''
+        title: '',
+        cityList: {}
       }
     },
     mounted () {
+      API.CityList()
+        .then(res => {
+          this.cityList = res
+        })
+    },
+    computed: {
+      getCityList () {
+        return formatAlphabeticalOrder(this.cityList)
+      }
     },
     watch: {
     },
     methods: {
       setTitle () {
-        console.log(this.title)
         setDocumentTitle(this.title)
       }
     },

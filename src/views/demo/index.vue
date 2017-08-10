@@ -35,7 +35,7 @@
     },
     mounted () {
       console.log(this.$el.style)
-      API.Notifs('11').then((res) => {
+      API.Notifications('11').then((res) => {
       }, (res) => {
         console.log('BUG Weixin JSSDK')
       })

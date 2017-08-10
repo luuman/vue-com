@@ -2,7 +2,7 @@ import axios from 'axios'
 import {baseUrl} from './env.js'
 // import Loading from 'COMPONENT/vue-loading'
 
-const TOKEN = 'e527a81323a71118a05edad56a09ad251af47f02'
+const TOKEN = '8259a6e8588e7f1b2789b1680209f2f58b6aaf8b'
 
 import qs from 'qs'
 import * as Tool from 'UTIL/vuex'
@@ -78,26 +78,17 @@ export const oPost = (url, params, showLoading) => {
 }
 
 export default {
-  // 发送注册验证码
-  Authorization () {
-    return oPost(`/user/info/get`, {ykresource: 'guessing'})
-  },
-  ReposList (username) {
-    // return oGet(`/users/${username}/repos`)
-    return oGet(`/search/repositories?q=user:${username}`)
-  },
   Login (username, reponame) {
     return oGet(`/repos/${username}/${reponame}`)
   },
+  CityList () {
+    return oGet(`/city/citylist`)
+  },
   UsersList (since) {
-    return oGet(`/users?since=${since}`)
-    // since The integer ID of the last User that you've seen.
+    return oGet(`/github/notifications?since=${since}`)
   },
   Notifications (page) {
-    return oGet(`/notifications?page=${page}`)
-  },
-  Notifs (page) {
-    return oGet(`/repos/airyland/vux/notifications?page=${page}`, true)
+    return oGet(`/github/notifications?page=${page}`)
   },
   Get (link) {
     return oGet(link)

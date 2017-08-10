@@ -149,8 +149,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: size(100);
-    height: size(100);
+    // width: size(100);
+    // height: size(100);
     margin-left: size(-50);
     margin-top: size(-100);
     svg{

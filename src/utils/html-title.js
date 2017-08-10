@@ -1,5 +1,6 @@
 export const setDocumentTitle = (title) => {
   'use strict'
+  if (!title) return
   setTimeout(function () {
     // 利用iframe的onload事件刷新页面
     document.title = title

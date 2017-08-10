@@ -22,3 +22,14 @@ export const formatType = (today) => {
   let data = `${month} ${day},${year}`
   return data
 }
+
+// 字母排序对象数据（A -> Z, 65 -> 90）
+export const formatAlphabeticalOrder = (data) => {
+  let sortObj = {}
+  for (let i = 65; i <= 90; i++) {
+    if (data[String.fromCharCode(i)]) {
+      sortObj[String.fromCharCode(i)] = data[String.fromCharCode(i)]
+    }
+  }
+  return sortObj
+}

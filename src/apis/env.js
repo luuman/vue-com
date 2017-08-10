@@ -12,7 +12,7 @@ let routerMode
 const imgBaseUrl = 'https://fuss10.elemecdn.com'
 
 if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'https://api.github.com'
+  baseUrl = 'https://www.easy-mock.com/mock/59892f33a1d30433d858cfe9/vue-cli'
   routerMode = 'hash'
 } else {
   baseUrl = ''
