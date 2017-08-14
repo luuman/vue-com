@@ -18,11 +18,7 @@ axios.interceptors.request.use((config) => {
     config.data = qs.stringify(config.data)
   }
   let URL = config.url.split(config.baseURL)
-  Tool.open(URL[1])
-  console.log(config)
-  if (config.showLoading) {
-    // Loading.open()
-  }
+  Tool.open(URL[1], config.showLoading)
   return config
 }, (error) => {
   Tool.toast('错误的传参', 'fail')
@@ -89,6 +85,12 @@ export default {
   },
   Notifications (page) {
     return oGet(`/github/notifications?page=${page}`)
+  },
+  getNews (name, time) {
+    return oGet(`/zhihu/get?api=/4/news/${name}/${time}`)
+  },
+  getNewsById (Id) {
+    return oGet(`/zhihu/news?id=${Id}`)
   },
   Get (link) {
     return oGet(link)

@@ -2,7 +2,7 @@
   <div id="qrcode"></div>
 </template>
 <script>
-  // import Heads from 'COMPONENT/heads'
+  require('!!script-loader!../../../static/qrcode.min.js')
   export default {
     components: {
     },

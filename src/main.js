@@ -59,7 +59,7 @@ Vue.use(VueScroller)
 // })
 // Vue.config.productionTip = false
 
-// import store from 'VUEX/store'
+import store from 'VUEX/store'
 
 console.log('[process.env.NODE_ENV]' + process.env.NODE_ENV)
 
@@ -82,7 +82,7 @@ router.afterEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
-  // store,
+  store,
   template: '<App/>',
   components: {
     // Alert,

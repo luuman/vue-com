@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-  import {setDocumentTitle} from 'UTIL/html-title'
+  import {setDocumentTitle} from 'UTIL/common'
   import {formatAlphabeticalOrder} from 'UTIL/tool'
   import API from 'API'
   export default {

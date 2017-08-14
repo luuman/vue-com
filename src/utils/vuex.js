@@ -28,15 +28,14 @@ export const alert = (str) => {
   console.groupEnd()
 }
 
-export const open = (text) => {
+export const open = (text, open) => {
   console.group('AXIOS ' + text)
-  store.dispatch('openLoading', text)
-  // window.Loading.show()
-  // Loading.plugin.Loading.show()vue
+  if (open) {
+    store.dispatch('openLoading', text)
+  }
 }
 
 export const close = () => {
   console.groupEnd()
   store.dispatch('closeLoading')
-  // window.Loading.hide()
 }

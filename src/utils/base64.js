@@ -1,3 +1,49 @@
+import html2canvas from 'html2canvas'
+// require('!!script-loader!../../static/html2canvas/0.5.0-alpha1/html2canvas.js')
+// 英文会自动换行，但不是很清晰！
+// require('!!script-loader!../../static/html2canvas/0.4.1/html2canvas.js')
+
+export const getHtmlBase64 = (DivId, scale, Img) => {
+  let w = document.body.scrollWidth
+  let h = document.body.scrollHeight
+  let canvas = document.createElement('canvas')
+  let context = canvas.getContext('2d')
+  canvas.width = w * scale
+  canvas.height = h * scale
+  canvas.style.width = w + 'px'
+  canvas.style.height = h + 'px'
+  context.scale(scale, scale)
+
+  // https://html2canvas.hertzen.com/documentation.html
+  let options = {
+    // 检测每张图片都已经加载完成
+    // tainttest: true,
+    // 允许加载跨域的图片
+    // allowTaint: true,
+    // Whether to attempt to load cross-origin images as CORS served, before reverting back to proxy
+    useCORS: true,
+    // proxy: '',
+    // background: '#FFF',
+    // 字母间距
+    // letterRendering: true,
+    // 日志开关
+    // logging: true,
+    // 自定义 canvas
+    canvas: canvas
+  }
+  html2canvas(document.getElementById(DivId), options).then((canvas) => {
+    let image = canvas.toDataURL('image/png')
+    Img(image)
+  })
+  // window.html2canvas(document.getElementById(DivId), {
+  //   canvas: options.canvas,
+  //   onrendered: function (canvas) {
+  //     let image = canvas.toDataURL('image/png')
+  //     Img(image)
+  //   }
+  // })
+}
+
 export const getBase64Image = (imgurl) => {
   let image = new Image()
   let isLoad = false
