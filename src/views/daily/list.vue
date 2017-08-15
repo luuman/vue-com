@@ -30,6 +30,7 @@
       return {
         loading: false,
         scroller: window,
+        count: 1,
         pageList: []
       }
     },
@@ -46,13 +47,15 @@
       getList (name, time) {
         API.getNews(name, time).then((res) => {
           this.pageList.push(res)
+          this.loading = false
         })
       },
       loadMore () {
         this.loading = true
         setTimeout(() => {
-          // this.count--
-          this.getList()
+          this.count--
+          console.log(this.count)
+          this.getList('before', this.GetDate(this.count))
         }, 500)
       },
       fromDate (time) {

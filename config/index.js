@@ -28,7 +28,15 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/get': {
+        target: 'https://zhihu-agent.herokuapp.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/get': '/get'
+        }
+      }
+    },
     // proxyTable: proxyTableObj,
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

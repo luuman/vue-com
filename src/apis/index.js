@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {baseUrl} from './env.js'
-// import Loading from 'COMPONENT/vue-loading'
 
 const TOKEN = '8259a6e8588e7f1b2789b1680209f2f58b6aaf8b'
 
@@ -22,7 +21,6 @@ axios.interceptors.request.use((config) => {
   return config
 }, (error) => {
   Tool.toast('错误的传参', 'fail')
-  // Loading.close()
   return Promise.reject(error)
 })
 
@@ -36,12 +34,10 @@ axios.interceptors.response.use((res) => {
   //   return Promise.reject(res)
   // }
   Tool.close()
-  // Loading.close()
   return res
 }, (error) => {
   Tool.toast('网络异常', 'fail')
   Tool.close()
-  // Loading.close()
   return Promise.reject(error)
 })
 
@@ -87,10 +83,14 @@ export default {
     return oGet(`/github/notifications?page=${page}`)
   },
   getNews (name, time) {
-    return oGet(`/zhihu/get?api=/4/news/${name}/${time}`)
+    if (time) {
+      return oGet(`/get?api=/4/news/${name}/${time}`)
+    } else {
+      return oGet(`/get?api=/4/news/${name}`)
+    }
   },
   getNewsById (Id) {
-    return oGet(`/zhihu/news?id=${Id}`)
+    return oGet(`/get?api=/4/news/${Id}`)
   },
   Get (link) {
     return oGet(link)
