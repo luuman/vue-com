@@ -127,7 +127,8 @@
     },
     data () {
       return {
-        imgUrl: 'https://user-gold-cdn.xitu.io/2017/7/24/d2bf033096fb4429b0c916ad8663cf5e',
+        // imgUrl: 'https://user-gold-cdn.xitu.io/2017/7/24/d2bf033096fb4429b0c916ad8663cf5e',
+        imgUrl: 'https://avatars2.githubusercontent.com/u/10662852?v=4&s=460',
         Img: ''
       }
     },
@@ -140,7 +141,7 @@
     methods: {
       base64 () {
         let image = new Image()
-        image.crossOrigin = ''
+        image.crossOrigin = 'Anonymous'
         image.src = this.imgUrl
         let self = this
         image.onload = function () {
@@ -150,10 +151,12 @@
       },
       backImg (data) {
         // 回调
+        this.$Loading.close()
         this.Img = data
       },
       showBase () {
         // 执行
+        this.$Loading.open('生成中……')
         getHtmlBase64('shareContent', 3, this.backImg)
       },
       initqrcode () {

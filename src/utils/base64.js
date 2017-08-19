@@ -70,3 +70,26 @@ export const getCanvas = (img) => {
   var dataURL = canvas.toDataURL('image/' + ext)
   return dataURL
 }
+
+// class ImagePreloader {
+//   loadManifest (manifest) {
+//     var promises = []
+//     for (var i = 0; i < manifest.length; i++) {
+//       promises.push(this.loadImage(manifest[i]))
+//     }
+//     return Promise.all(promises)
+//   }
+//   loadImage (src) {
+//     let image = new Image()
+//     image.crossOrigin = 'Anonymous'
+//     return new Promise((resolve, reject) => {
+//       image.onload = () => {
+//         resolve(image)
+//       }
+//       image.onerror = () => {
+//         reject()
+//       }
+//       image.src = src
+//     })
+//   }
+// }

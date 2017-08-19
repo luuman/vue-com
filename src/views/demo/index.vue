@@ -9,6 +9,12 @@
         <p>{{Name}}</p>
       </buttons>
     </div>
+    <div id="container">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </template>
 <script>
@@ -71,6 +77,15 @@
       border-bottom: 1px solid #c7c7c7;
       box-sizing: border-box;
       text-align: center;
+      // @media only screen and (width:320px) and (width:768px){
+      //   background: #000;
+      // }
+      // @media only screen and (min-width:768px) and (max-width:1024px){
+      //   background: #666;
+      // }
+      @include respond-to(iphone) {
+        color: tomato;
+      }
       &:nth-child(3n){
         border-right: none;
       }
