@@ -17,10 +17,10 @@ const Swiper = r => require.ensure([], () => r(require('VIEW/swiper')), 'swiper'
 const VueAlert = r => require.ensure([], () => r(require('VIEW/vue-alert')), 'alert')
 const Loading = r => require.ensure([], () => r(require('VIEW/loading')), 'loading')
 const Previewer = r => require.ensure([], () => r(require('VIEW/previewer')), 'loading')
-const Scroller = r => require.ensure([], () => r(require('VIEW/scroller')), 'Scroller')
-const ScrollTop = r => require.ensure([], () => r(require('VIEW/scroll')), 'Scroll')
-const ScrollerInfo = r => require.ensure([], () => r(require('VIEW/scroller/info')), 'Scroller')
-const KeepAlive = r => require.ensure([], () => r(require('VIEW/keep-alive')), 'Scroller')
+const Scroller = r => require.ensure([], () => r(require('VIEW/scroller')), 'scroller')
+const ScrollTop = r => require.ensure([], () => r(require('VIEW/scroll')), 'scroll')
+const ScrollerInfo = r => require.ensure([], () => r(require('VIEW/scroller/info')), 'scroller')
+const KeepAlive = r => require.ensure([], () => r(require('VIEW/keep-alive')), 'keep-alive')
 const Util = r => require.ensure([], () => r(require('VIEW/utils')), 'Util')
 const HtmlCanvas = r => require.ensure([], () => r(require('VIEW/html-canvas')), 'HtmlCanvas')
 const Clipboard = r => require.ensure([], () => r(require('VIEW/clipboard')), 'Clipboard')
@@ -28,6 +28,7 @@ const VueCrop = r => require.ensure([], () => r(require('VIEW/vue-crop')), 'VueC
 const Daily = r => require.ensure([], () => r(require('VIEW/daily')), 'Daily')
 const DailyList = r => require.ensure([], () => r(require('VIEW/daily/list')), 'DailyList')
 const Dailys = r => require.ensure([], () => r(require('VIEW/daily/info')), 'Dailys')
+const Video = r => require.ensure([], () => r(require('VIEW/video')), 'Video')
 
 Vue.use(Router)
 
@@ -177,6 +178,14 @@ export default new Router({
           component: Dailys
         }
       ]
+    },
+    {
+      path: '/Video',
+      name: 'Video',
+      meta: {
+        title: '视频'
+      },
+      component: Video
     },
     {
       path: '/Scroller/:username',

@@ -57,8 +57,8 @@
   .action{
     width: 100%;
     img{
-      width: 50%;
-      float: left;
+      width: 100%;
+      // float: left;
       vertical-align: bottom;
     }
   }

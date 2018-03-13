@@ -1,9 +1,10 @@
-import html2canvas from 'html2canvas'
+// import html2canvas from 'html2canvas'
 // require('!!script-loader!../../static/html2canvas/0.5.0-alpha1/html2canvas.js')
+// require('!!script-loader!../../static/html2canvas/v0.5.0-beta4/html2canvas.js')
 // 英文会自动换行，但不是很清晰！
-// require('!!script-loader!../../static/html2canvas/0.4.1/html2canvas.js')
+require('!!script-loader!../../static/html2canvas/0.4.1/html2canvas.js')
 
-export const getHtmlBase64 = (DivId, scale, Img) => {
+export const getHtmlBase64 = (DivId, scale, callback) => {
   let w = document.body.scrollWidth
   let h = document.body.scrollHeight
   let canvas = document.createElement('canvas')
@@ -31,17 +32,17 @@ export const getHtmlBase64 = (DivId, scale, Img) => {
     // 自定义 canvas
     canvas: canvas
   }
-  html2canvas(document.getElementById(DivId), options).then((canvas) => {
-    let image = canvas.toDataURL('image/png')
-    Img(image)
-  })
-  // window.html2canvas(document.getElementById(DivId), {
-  //   canvas: options.canvas,
-  //   onrendered: function (canvas) {
-  //     let image = canvas.toDataURL('image/png')
-  //     Img(image)
-  //   }
+  // html2canvas(document.getElementById(DivId), options).then((canvas) => {
+  //   let image = canvas.toDataURL('image/png')
+  //   callback(image)
   // })
+  window.html2canvas(document.getElementById(DivId), {
+    canvas: options.canvas,
+    onrendered: function (canvas) {
+      let image = canvas.toDataURL('image/png')
+      callback(image)
+    }
+  })
 }
 
 export const getBase64Image = (imgurl) => {

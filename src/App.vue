@@ -28,6 +28,11 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
   @import './assets/scss/mixin.scss';
+  .container{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
   .view{
     width: size(375);
     overflow: hidden;

@@ -27,10 +27,12 @@
   // css 动画执行的时间
   const ANIMATION_TIME = 400
   export default {
-    data: () => ({
-      value: '',
-      showModal: false
-    }),
+    data () {
+      return {
+        value: '',
+        showModal: false
+      }
+    },
     props: [
       'title',
       'text',
