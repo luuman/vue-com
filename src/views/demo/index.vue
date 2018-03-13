@@ -84,7 +84,7 @@
       //   background: #666;
       // }
       @include respond-to(iphone) {
-        color: tomato;
+        color: #ea4a47;
       }
       &:nth-child(3n){
         border-right: none;
@@ -92,10 +92,10 @@
       svg{
         width: size(50);
         height: size(50);
-        color: #04be02;
+        color: #ea4a47;
       }
       .cov-ripple{
-        background: #04be02;
+        background: #ea4a47;
       }
     }
   }
